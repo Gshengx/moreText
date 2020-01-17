@@ -24,6 +24,7 @@ module.exports = {
   },
   // add your custom rules here
   'rules': {
+    'quotes': [1, "single"],
     // don't require .vue extension when importing
     'import/extensions': ['error', 'always', {
       'js': 'never',
@@ -41,6 +42,6 @@ module.exports = {
     'no-bitwise': 0,
     'import/no-unresolved': 0,
     'no-trailing-spaces': 0,
-    'no-fallthrough': 0
+    'no-fallthrough': 0,
   }
 }

@@ -5,7 +5,7 @@
       <a @touchstart="clear" @mousedown="clear">清屏</a>
       <a @touchstart="download" @mousedown="download">下载</a>
       <select v-model="degree">
-        <option v-for="item in scope" :value="item.value">{{item.title}}</option>
+        <option v-for="(item,index) in scope" :key=index :value="item.value">{{item.title}}</option>
       </select>
     </div>
     <canvas></canvas>
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import Draw from '../utils/draw';
 
 export default {
@@ -47,6 +48,13 @@ export default {
   mounted() {
     this.canvasBox = document.getElementById('canvasBox');
     this.initCanvas();
+    axios.get('/api/json', {
+      params: {},
+    }).then((res) => {
+      console.log(res);
+    }).catch((err) => {
+      console.log(err);
+    });
   },
   computed: {
     getHorizontalStyle() {
